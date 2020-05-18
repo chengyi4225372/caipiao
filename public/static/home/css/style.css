@@ -1,0 +1,196 @@
+/* CSS Document */
+
+body,td,th {
+	font-size: 12px;
+	color:#272727;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+a {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a:hover {
+	text-decoration: underline;
+	color: #FF0000;
+}
+a:active {
+	text-decoration: none;
+	color: #FF0000;
+}
+
+A.key:link {
+	COLOR: #393939; font-size: 12px; TEXT-DECORATION: none
+}
+A.key:visited {
+	COLOR: #393939; font-size: 12px; TEXT-DECORATION: none
+}
+A.key:active {
+	COLOR: #A41614; font-size: 12px; TEXT-DECORATION: none
+}
+A.key:hover {
+	COLOR: #A41614; font-size: 12px; TEXT-DECORATION: none
+}
+.menubg {
+   line-height:25px;
+   color:#000858;
+   font-size:14px;
+   cursor:hand;
+}
+.menubg_on {
+   line-height:25px;
+   color:#1B28A8;
+   font-size:14px;
+   border-bottom:1px solid #0033FF;
+   font-weight:blod;
+   cursor:hand;
+}
+.trline {
+   border-bottom:2px solid #B0B0B0;
+}
+#showin1{
+	background:#FFFFFF;
+	border: 0px solid #1B77B8;
+	margin-top:0px;
+	margin-left:0px;
+	float:left;
+	overflow:hidden;
+	position:absolute;
+	cursor:move;
+	cursor:auto;
+	z-index:999px;
+}
+.showin1 {
+    width:420px;
+	margin:auto;
+	height:140px;
+}
+.showin1 ul {
+    width:140px;
+	height:auto;
+	float:left;
+	clear:both;
+	list-style-type:square;
+}
+.showin1 ul li {
+    width:140px;
+	height:22px;
+	float:left;
+	text-align:left;
+	line-height:22px;
+}
+.font1 {
+   font-size:12px;
+   line-heign:22px;
+}
+.tfont {
+   font-size:18px;
+   line-height:25px;
+   font-weight:bold;
+   color:#000066;
+   font-family:"��Բ";
+}
+.cfont {
+   line-height:22px;
+   color:#000000;
+}
+.loginbt11 {
+    height:20px;
+	width:60px;
+	background:url(../images/dl.gif) no-repeat;
+	border:none;
+	cursor:hand;
+}
+.loginbt22 {
+    height:20px;
+	width:60px;
+	background:url(../images/reg.gif) no-repeat;
+	border:none;
+	cursor:hand;
+}
+.m1 {
+	height:25px;
+	width:195px;
+	float:left;
+	cursor:hand;
+	font-size:12px;
+	line-height:25px;
+}
+.m1_on {
+	height:25px;
+	width:195px;
+	float:left;
+	cursor:hand;
+	font-size:13px;
+	color:#D36800;
+	line-height:25px;
+	background-color:#D4DDED;
+}
+.loginbt {
+    height:40px;
+	width:40px;
+	background:url(../images/login.gif) no-repeat;
+	border:none;
+}
+.inputbg {
+    height:16px;
+	width:88px;
+	background-color:#B4C8FF;
+	border:#3B52C4 1px solid; 
+}
+.mfont {
+    color:#405C08;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#lists {padding:0; margin:auto; list-style:none; position:relative; height:31px; float:left; width:920px; z-index:999;} /* margins for this demonstration only */
+#lists li {display:inline; float:left; height:30px; background:url(../images/m_span.gif) no-repeat 0 2px;}
+#lists li a.tl {display:block; width:120px; padding-left:0px; padding-right:0px; height:30px; text-align:center; text-decoration:none; line-height:31px; font-size:14px; font-weight:bold; text-indent:2px; color:#000858;}
+
+#lists div {display:none;}
+
+#lists li a.tl:hover {text-decoration:none; color:#1B28A8; white-space:normal; background-position:130px 15px; border-bottom:1px solid #0033FF;}
+
+#lists li a:hover {text-decoration:underline; color:#1B28A8; white-space:normal; background-position:130px 15px;}
+#lists li:hover > a {text-decoration:underline; white-space:normal; background-position:130px 15px;}
+
+#lists :hover div
+{display:block; width:420px; background:#FFFFFF; filter:alpha(opacity=90); position:absolute; left:0; top:31px; border-bottom:2px solid #EAD40F; padding-bottom:10px;}
+#lists :hover div.pos2 {background:#FFFFFF; width:280px;}
+
+#lists .two:hover {position:relative;}
+#lists .single:hover {position:relative;}
+
+#lists :hover div.pos3 {background:#FFFFFF; width:600px;}
+#lists .single:hover div.pos4 {background:#ffefd5; width:150px;}
+
+#lists :hover div dl {display:inline; padding:0; margin:10px 0 10px 10px; float:left; width:130px;}
+#lists :hover div dl dt {width:130px; background:#888; text-indent:10px; margin:5px 0 10px 0; text-decoration:none; height:20px; line-height:20px;}
+
+#lists .two:hover div {left:-150px;}
+#lists .two:hover div dl {width:130px;}
+#lists .two:hover div dl dt {width:130px;}
+
+#lists .single:hover div dl {width:130px;}
+#lists .single:hover div dl dt {width:130px;}
+
+#lists :hover div dl dd {padding:0; margin:0;}
+
+#lists :hover div dt a {text-decoration:none; cursor:default; font-weight:normal; color:#fff;}
+#lists :hover div dd a {display:block; text-decoration:none; font-weight:normal; background:url(../images/dian.gif) no-repeat 0 4px; font-size:12px; color:#000858;; text-indent:10px; line-height:22px;}
+#lists :hover div dd a:hover {text-decoration:underline; color:#A41614;}
+
+#lists .clear {clear:both;}

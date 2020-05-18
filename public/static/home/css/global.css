@@ -1,0 +1,268 @@
+*{ word-wrap:break-word; word-break:break-all; }
+*{ margin:0px; padding:0px; }
+body, td, th, input, select, textarea, a, div {
+ font:12px Arial, Verdana, "Lucida Grande", Tahoma, Lucida, Helvetica, sans-serif, "宋体";
+ color:#000;
+ text-decoration:none;
+ line-height:200%;
+}
+body { background:#0066FF url(../images/bg.html); margin:0px; padding:0px; }
+ul, ol, dl{ margin:0px; padding:0px; text-indent:0px; }
+dt, dd { margin:0px; padding:0px line-height:20px; }
+li { list-style:none; margin:0px; padding:0px; line-height:20px; }
+
+iframe{ margin:0px; padding:0px; line-height:1px; }
+h1,h2,h3,h4,h5,h6 { font-family:Verdana; font-size:12px; font-weight:normal; margin:0px; padding:0px; }
+
+table { border:0px; }
+div { font-family:宋体; font-size:12px; }
+form, embed { display:inline; margin:0px; padding:0px; }
+img a img { vertical-align:middle; border:0px; }
+a { color:#000; text-decoration:none; }
+a:hover { color:#F60; text-decoration:underline; }
+
+a.curLinks { color:#F30; text-decoration:none; }
+a.curLinks:hover { color:#F30; text-decoration:underline; }
+
+.blank5  { width:100%; line-height:0px; font-size:1px; height:5px; clear:both; }
+.blank10 { width:100%; line-height:0px; font-size:1px; height:10px; clear:both; }
+.blank20 { width:100%; line-height:0px; font-size:1px; height:20px; clear:both; }
+.blank25 { width:100%; line-height:0px; font-size:1px; height:25px; clear:both; }
+.blank30 { width:100%; line-height:0px; font-size:1px; height:30px; clear:both; }
+.blank50 { width:100%; line-height:0px; font-size:1px; height:50px; clear:both; }
+
+/*
+广告样式
+***********************************************************/
+.indexAdvert { clear:both; text-align:center; margin:5px 0 0 0;}
+.leftAdvertUL {margin:0px;line-height:0px;font-size:0px;text-align:center;}
+.leftAdvert {margin-top:10px;text-align:center;line-height:5px;}
+.mainAdvert {margin:auto;}
+.contentAdvert { clear:both; text-align:center; margin:5px 0 0 0; }
+span.contentad {float:left;margin:2px 2px;}
+.listAdvert { clear:both; text-align:center; margin:5px 0 0 0;}
+.urlad { clear:both; text-align:center; line-height:150%; color:#FFF; font-size:20px; font-weight:bold; background:#0066FF; margin:5px 0 0 0;}
+
+/*--主体样式
+***********************************************************/
+#globalBody { width:1000px; margin:0px auto; padding:0px; background:#0066FF url(../images/body_bg.html); }
+#globalMain { width:1000px; margin:0px auto; padding:0px; background:#0066FF url(../images/body_bg.html); }
+td.td-left  { width:260px; background:#FEE; }
+td.td-middle{ width:20px; }
+td.td-right { width:720px; }
+#leftmain   { width:100%; }
+#middlemain { width:100%; }
+#rightmain  { width:100%; }
+.maintab { width:100%; margin:0px auto; }
+.maintab th { height:21px; color:#FFF; font-weight:bold; background:#0066FF; padding:2px 3px; }
+.maintab th.left { text-align:left; }
+.maintab td { height:21px; padding:2px 3px; }
+
+.linetab_left { width:100%; background:#C3A56A; border:0px; }
+.linetab_left td { height:21px; background:#FEE; padding:2px 3px; }
+.linetab { clear:both; margin:auto; }
+.linetab th { height:21px; font-weight:bold; background:#DCBA98; padding:2px 5px; }
+.linetab td { height:21px; line-height:200%; padding:2px 5px; }
+.linetab td.ct { text-align:center; }
+
+.showtab { width:100%; border:0px; background:#0066FF; }
+.showtab th { height:21px; color:red; font-weight:bold; background:#0066FF; padding:2px 5px; }
+.showtab td { padding:5px; background:#FEE; }
+.showtab td.left { text-align:left; } 
+.showtab td.right { text-align:right; }
+.showtab td.center { text-align:center; }
+
+.showtab div.tips { background:red; color:#FFF; font-size:20px; font-weight:bold; line-height:150%; }
+.showtab div.r_pic img { margin:20px 0px 50px 0px; }
+.showtab div.text { margin:20px; }
+.showtab li.red { color:red; }
+.showtab li.blue { color:blue; }
+.showtab li.green { color:green; }
+.showtab h1 { font-size:16px; font-weight:bold; margin:20px; }
+.showtab h1.red { color:red; }
+.showtab h1.blue { color:blue; }
+.showtab h1.green { color:green; }
+
+.showtab h2 { font-size:normal; font-weight:bold; margin:20px; }
+.showtab h2.red { color:red; }
+.showtab h2.blue { color:blue; }
+.showtab h2.green { color:green; }
+
+.showtab h3 { font-size:normal; font-weight:bold; }
+.showtab h3.red { color:red; }
+.showtab h3.blue { color:blue; }
+.showtab h3.green { color:green; }
+
+.showtab p { text-indent:24px; }
+
+.left { text-align:left; }
+.right { text-align:right; }
+.center { text-align:center; }
+
+
+/*历史记录
+***********************************************************/
+.historytab { width:100%; border:0px; background:#FFF; }
+.historytab th { height:21px; text-align:center; color:#FFF; font-weight:bold; padding:2px 5px; }
+.historytab th.th1 { background:#FFF; }
+.historytab th.th2 { background:#FFF; }
+.historytab td { height:21px; text-align:center; background:#FFF; padding:2px 5px; }
+
+
+/*Header
+*************************************************/
+#globalHeader { width:1000px; background:#0066FF url(../images/body_bg.html); margin:0px auto; }
+#pageHeader   { height:25px; margin:0px 0px; }
+#pageHeader .topBar { width:100%; height:25px; background:#0066FF; margin:0px auto; }
+#pageHeader .topBar .siteTime { float:left; width:232px; text-align:center; color:#FFF; line-height:25px; }
+#pageHeader .topBar .topMenu  { float:right; width:530px; text-align:right; color:#FFF; line-height:25px; }
+#pageHeader .topBar .topMenu a { color:#FFF; text-decoration:none; }
+#pageHeader .topBar .topMenu a:hover { color:#FFF; text-decoration:underline; }
+
+/*banner
+*************************************************/
+#globalBanner { height:180px; margin:0px auto; }
+
+/*Navigation
+*************************************************/
+#globalNav { height:25px; background:#0066FF; margin:0px auto; padding:2px 0px; }
+#globalNav li { float:left; width:100px; height:25px; text-align:center; }
+#globalNav li span { width:100px; height:25px; line-height:25px; cursor:pointer; margin:0px; padding:0px; }
+#globalNav li a span { display:block; color:#FFF; text-decoration:none; background:#333 url(../images/menunav_bg.html); }
+#globalNav li a:hover span { display:block; color:#FFF; text-decoration:none; background:#333 url(../images/shownav_bg1.html); }
+#globalNav li a.selmenulinks span { display:block; height:28px; color:#FFF; background:#0066FF url(../images/shownav_bg2.html); }
+#globalNav li a.selmenulinks:hover span { display:block; color:#FFF; }
+
+#globalNav li.home { width:100px; background:#960; }
+#globalNav li.home span { width:100px; height:25px; line-height:25px; cursor:pointer; margin:0px; padding:0px; }
+#globalNav li.home a span { display:block; color:#FFF; text-decoration:none; background:#333 url(../images/homenav_bg.html); }
+#globalNav li.home a:hover span { display:block; color:#FFF; text-decoration:none; background:#333 url(../images/show_homenav_bg.html); }
+
+/*- Menu Tabs I--------------------------- */
+#tabsI {
+ float:left;
+ width:798px;
+ background:#666 url(../images/nav_bg.html);
+ font-size:98%;
+ line-height:normal;
+ border:1px solid #000;
+}
+#tabsI ul {
+ margin:0;
+ padding:5px 10px 0 25px;
+ list-style:none;
+}
+#tabsI li {
+ display:inline;
+ margin:0px;
+ padding:0px;
+}
+#tabsI a {
+ float:left;
+ background:url("../images/tableft6.html") no-repeat left top;
+ margin:0px;
+ padding:0px 0px 0px 4px;
+ text-decoration:none;
+}
+#tabsI a span {
+ float:left;
+ display:block;
+ background:url("../images/tabright6.html") no-repeat right top;
+ padding:3px 17px 2px 15px;
+ color:#FFF;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabsI a span {float:none;}
+/* End IE5-Mac hack */
+#tabsI a:hover span {
+ color:#FFF;
+}
+#tabsI a:hover {
+ background-position:0% -42px;
+}
+#tabsI a:hover span {
+ background-position:100% -42px;
+} 
+
+/*--日期样式*/
+.datetab { width:300px; background:#0066FF; border:1px #960 solid; }
+.datetab td { height:27px; text-align:center; }
+.datetab td.topweek { font-weight:bold; background:#FFEDC8; }
+.datetab td.dt1 { background:#FFF9EC; }
+.datetab td.dt2 { color:#000; background:#FFEDC8; } 
+.datetab td.showdate { text-align:center; font-family:Verdana; background:#FFF9EC; }
+
+.dateArea { width:300px; margin:50px 0px }
+.dateArea th { height:21px; font-size:14px; font-weight:bold; }
+.dateArea td {  }
+
+
+/*LocalPosition
+*************************************************/
+#globalLocalPosition {
+ height:25px;
+ line-height:25px; color:#FFF;
+ background:#0066FF url(../images/localposition_bg.html);
+ padding-left:10px;
+}
+#globalLocalPosition a { color:#333; }
+
+/*Announce
+*************************************************/
+#Announce { width:100%; }
+#Announce .headline { width:100%; height:25px; background:#0066FF url(../images/topbar_bg.html); border-top:1px #FF0 solid; border-bottom:1px #FF0 solid; }
+#Announce .headline h2 { text-align:center; color:#FFF; font-size:14px; font-family:Verdana; font-weight:bold; line-height:25px; }
+#Announce .content { line-height:180%; padding:5px; }
+#Announce .content p { line-height:180%; }
+#Announce .content div { line-height:180%; }
+
+/*ContentArea
+*************************************************/
+#contArea { width:100%; }
+#contArea .headline { width:100%; height:25px; background:#0066FF url(../images/topbar_bg.html); border-top:1px #960 solid; border-bottom:1px #960 solid; }
+#contArea .headline h2 { text-align:center; color:#FFF; font-size:14px; font-family:Verdana; font-weight:bold; line-height:25px; }
+#contArea .content { line-height:180%; padding:5px; }
+#contArea .content p { line-height:180%; }
+#contArea .content div { line-height:180%; }
+
+
+/*FriendLink
+*************************************************/
+#globalFriendLinks { width:100%; clear:both; background:#FEE2E0; margin:0px auto; }
+#globalFriendLinks .headline { width:100%; height:25px; background:#CC0000; }
+#globalFriendLinks .headline h3 { line-height:25px; color:#FFF; font-size:12px; font-weight:bold; padding:0px 5px; }
+#globalFriendLinks .listbox { float:left; padding:3px 5px 5px 5px; }
+#globalFriendLinks .listbox li { float:left; width:88px; text-align:center; line-height:25px; border:1px solid #666; margin:2px; }
+
+/*BsTabList
+*************************************************/
+#BsTabList { clear:both; margin:0px auto; }
+#BsTabList table { width:100%; border:0px; background:#000; }
+#BsTabList td { height:21px; color:white; font-weight:bold; padding:2px 5px; }
+#BsTabList td.red { background:red; }
+#BsTabList td.blue { background:blue; }
+#BsTabList td.green { background:green; }
+#BsTabList td.darkblue { background:darkblue; }
+#BsTabList td.yellow { color:black; background:yellow; }
+
+/*ListTab
+*************************************************/
+.ListTab { width:100%; border:0px; background:#FEE; }
+.ListTab td { height:21px; padding:0px 5px; }
+.ListTab td.ct { text-align:center; }
+.ListTab td.redct { text-align:center; color:red; }
+
+
+
+/*Footer/Bottom
+**************************************************/
+#globalBottom { width:1000px; background:#CC0000 url(../images/body_bg.html); margin:0px auto; }
+#pageBottom   { background:#CC0000; margin:0px auto; padding:10px; }
+#globalBottom li { text-align:center; color:#FFF; font-family:Arial, Verdana; }
+#bottomNav, #bottomInfo { text-align:center; font-size:9pt; font-family:Arial; }
+
+#globalFooter { width:1000px; background:#CC0000 url(../images/body_bg.html); margin:0px auto; }
+#pageFooter   { background:#0066FF; margin:0px auto; padding:10px; }
+#globalFooter li { text-align:center; color:#FFF; font-family:Arial, Verdana; }
+#footNav, #footInfo { text-align:center; color:#0066FF; font-size:9pt; font-family:Verdana, Arial; }
+

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2020/5/19
+ * Time: 0:44
+ */
 namespace app\index\controller;
 
 use app\index\controller\Base;
@@ -6,9 +12,9 @@ use think\Controller;
 use think\Db;
 use think\Session;
 
-class Index extends Base
+class Tie extends Base
 {
-    //首页
+    //帖子首页
     public function index()
     {
         if($this->request->isGet()){
@@ -17,11 +23,5 @@ class Index extends Base
         }
         return false;
     }
-
-    /**
-     * 开奖记录
-     */
-    public function history(){
-        return $this->fetch();
-    }
+    
 }
