@@ -24,4 +24,11 @@ class Index extends Base
     public function history(){
         return $this->fetch();
     }
+
+    /**
+     * 中间
+     */
+    public function plugs(){
+        return $this->fetch();
+    }
 }
