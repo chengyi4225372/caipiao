@@ -25,11 +25,13 @@ class Banner extends Base {
     
     public function add(){
         if($this->request->isPost()){
-            $imgs = input('post.imgs','','trim');
+            $imgs  = input('post.imgs','','trim');
+            $title = input('post.title','','trim');
+            
             if(empty($imgs)){
                 return false;
             }
-            $ret = Db::name($this->table)->insertGetId(['imgs'=>$imgs,'create_time'=>time()]);
+            $ret = Db::name($this->table)->insertGetId(['imgs'=>$imgs,'title'=>$title,'create_time'=>time()]);
 
             if($ret !== false){
                 return json(['code'=>200,'msg'=>'添加成功']);
@@ -42,14 +44,15 @@ class Banner extends Base {
     
     public function edit(){
         if($this->request->isPost()){
-            $mid = input('post.mid','','int');
-            $imgs= input('post.imgs','','trim');
+            $mid   = input('post.mid','','int');
+            $imgs  = input('post.imgs','','trim');
+            $title = input('post.title','','trim');
 
             if(empty($mid) || !isset($mid)){
                 return false;
             }
 
-            $res= Db::name($this->table)->where(['id'=>$mid])->update(['imgs'=>$imgs]);
+            $res= Db::name($this->table)->where(['id'=>$mid])->update(['imgs'=>$imgs,'title'=>$title]);
 
             if($res !== false){
                 return json(['code'=>200,'msg'=>'编辑成功']);

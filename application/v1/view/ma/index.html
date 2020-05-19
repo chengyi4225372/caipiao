@@ -5,20 +5,43 @@
             <span class="x-red">*</span>开奖码
         </label>
         <div class="layui-input-block">
-            <input type="text" id="title" value="" class="layui-input">
+            <input type="text" id="key" value="{$info.key|default=''}" class="layui-input">
         </div>
     </div>
 
-    <input type="hidden" id="mid" value="" />
+    <input type="hidden" id="mid" value="{$info.id|default=''}" />
 
     <div class="layui-form-item">
         <label for="repass" class="layui-form-label"></label>
-        <button  class="layui-btn"  id="editnews" >
+        <button  class="layui-btn"  id="save_key" >
             提交
         </button>
     </div>
 </div>
 
 </body>
+<script>
+    $('#save_key').click(function(){
+        var key = $.trim($('#key').val());
+        var mid = $('#mid').val();
+        if(key =='' || key == undefined){
+            layer.msg('请输入兑奖码',{icon:5});
+            return false;
+        }
+        var urls = "{:url('ma/index')}";
+
+        $.post(urls,{'mid':mid,'key':key},function(ret){
+            if(ret.code == 200){
+                layer.msg(ret.msg,{icon:6});
+                window.location.reload();
+            }
+
+            if(ret.code == 400){
+                layer.msg(ret.msg,{icon:5});
+                window.location.reload();
+            }
+        },'json')
+    })
+</script>
 
 </html>
