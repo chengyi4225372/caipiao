@@ -14,14 +14,23 @@ use think\Session;
 
 class Tie extends Base
 {
-    //帖子首页
-    public function index()
-    {
-        if($this->request->isGet()){
-
-            return $this->fetch();
-        }
-        return false;
+    public function index(){
+        return $this->fetch();
     }
-    
+
+    public function xjpqlc(){
+        return $this->fetch();
+    }
+
+    public function gao(){
+        return $this->fetch();
+    }
+
+    public function two(){
+        return $this->fetch();
+    }
+
+    public function tuku(){
+        return $this->fetch();
+    }
 }
