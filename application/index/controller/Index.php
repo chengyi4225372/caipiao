@@ -13,7 +13,7 @@ class Index extends Base
     {
         if($this->request->isGet()){
             $banner = Db::name('banner')->where(['status'=>1])->select();
-            $this->assign('banner',$banner);
+           $this->assign('banner',$banner);
             return $this->fetch();
         }
         return false;
