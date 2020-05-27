@@ -96,4 +96,26 @@ class News extends Base {
         return false;
     }
 
+
+    /**
+     * 帖子区域2
+     */
+    public function two(){
+        return $this->fetch();
+    }
+
+    /*
+     * 帖子区域3
+     */
+    public function three(){
+        return $this->fetch();
+    }
+
+
+    /**
+     * 帖子区域4
+     */
+    public function four(){
+        return $this->fetch();
+    }
 }
