@@ -17,7 +17,7 @@ class News extends Base {
     protected $table = 'news';
     
     public function index(){
-        $list = Db::name($this->table)->where(['status'=>1])->order('id desc')->paginate(15);
+        $list = Db::name($this->table)->where(['status'=>1,'options'=>1])->order('id desc')->paginate(15);
         $this->assign('list',$list);
         return $this->fetch();
     }
@@ -26,6 +26,7 @@ class News extends Base {
         if($this->request->isPost()){
             $data['title']   = input('post.title','','trim');
             $data['content'] = input('post.content','','trim');
+            $data['options'] = input('post.options','','int');
             $data['create_time'] = time();
 
             if(empty($data['title'] || !isset($data['content']))){
@@ -46,12 +47,13 @@ class News extends Base {
 
     public function edit(){
         if($this->request->isGet()){
-            $mid = input('get.mid');
+            $mid     = input('get.mid');
+            $options = input('get.options','','int');
             if(empty($mid) || !isset($mid)){
                 return false;
             }
 
-            $infos = Db::name($this->table)->where(['id'=>$mid,'status'=>1])
+            $infos = Db::name($this->table)->where(['id'=>$mid,'status'=>1,'options'=>$options])
                 ->find();
 
             $this->assign('infos',$infos);
@@ -62,12 +64,15 @@ class News extends Base {
             $mid     = input('post.mid');
             $title   = input('post.title','','trim');
             $content = input('post.content','','trim');
+            $options = input('post.options','','int');
 
             if(empty($mid) || !isset($mid)){
                 return false;
             }
 
-            $ret = Db::name($this->table)->where(['id'=>$mid])->update(['title'=>$title,'content'=>$content]);
+            $ret = Db::name($this->table)
+                ->where(['id'=>$mid])
+                ->update(['title'=>$title,'content'=>$content,'options'=>$options]);
 
             if($ret !== false){
                 return json(['code'=>200,'msg'=>'编辑成功']);
@@ -85,7 +90,7 @@ class News extends Base {
                 return false;
             }
 
-            $ret = Db::name($this->table)->where(['id'=>$mid])->update(['status'=>0]);
+            $ret = Db::name($this->table)->where(['id'=>$mid,'options'=>1])->update(['status'=>0]);
 
             if($ret !== false){
                 return json(['code'=>200,'msg'=>'删除成功']);
@@ -101,13 +106,18 @@ class News extends Base {
      * 帖子区域2
      */
     public function two(){
+        $list = Db::name($this->table)->where(['status'=>1,'options'=>2])->order('id desc')->paginate(15);
+        $this->assign('list',$list);
         return $this->fetch();
+
     }
 
     /*
      * 帖子区域3
      */
     public function three(){
+        $list = Db::name($this->table)->where(['status'=>1,'options'=>3])->order('id desc')->paginate(15);
+        $this->assign('list',$list);
         return $this->fetch();
     }
 
@@ -116,6 +126,8 @@ class News extends Base {
      * 帖子区域4
      */
     public function four(){
+        $list = Db::name($this->table)->where(['status'=>1,'options'=>4])->order('id desc')->paginate(15);
+        $this->assign('list',$list);
         return $this->fetch();
     }
 }

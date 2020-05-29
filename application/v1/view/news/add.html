@@ -51,6 +51,7 @@
         $('#addnews').click(function(){
               var editors = ue.getContentTxt('editor');
               var title = $.trim($('#title').val());
+              var options =$('#shipping option:selected').val();
 
 
              if(title == '' || title  == undefined){
@@ -59,7 +60,7 @@
              }
              var urls = "{:url('news/add')}";
 
-             $.post(urls,{'title':title,'content':editors},function(ret){
+             $.post(urls,{'title':title,'content':editors,'options':options},function(ret){
                     if(ret.code == 200){
                         layer.msg(ret.msg,{icon:6});
                         window.location.href= "{:url('news/index')}";

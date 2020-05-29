@@ -13,6 +13,20 @@
         </div>
     </div>
 
+    <div class="layui-form-item">
+        <label for="tie" class="layui-form-label">
+            <span class="x-red">*</span>帖子发布区域
+        </label>
+        <div class="layui-input-inline">
+            <select id="shipping" name="shipping" class="valid">
+                <option value="1" {eq name='$infos.options' value='1'} aria-checked="" {/eq}>帖子区域1</option>
+                <option value="2"{eq name='$infos.options' value='2'}  aria-checked="" {/eq}>帖子区域2</option>
+                <option value="3" {eq name='$infos.options' value='3'} aria-checked="" {/eq}>帖子区域3</option>
+                <option value="4" {eq name='$infos.options' value='4'} aria-checked="" {/eq}>帖子区域4</option>
+            </select>
+        </div>
+    </div>
+
     <div >
         <label for="title" class="layui-form-label">
             <span class="x-red">*</span>新闻信息
@@ -39,6 +53,7 @@
         var editors = ue.getContentTxt('editor');
         var title = $.trim($('#title').val());
         var mid   = $('#mid').val();
+        var options = $('#shipping option:selected ').val();
 
 
         if(title == '' || title  == undefined){
@@ -47,7 +62,7 @@
         }
         var urls = "{:url('news/add')}";
 
-        $.post(urls,{'title':title,'content':editors,'mid':mid},function(ret){
+        $.post(urls,{'title':title,'content':editors,'mid':mid,'options':options},function(ret){
             if(ret.code == 200){
                 layer.msg(ret.msg,{icon:6});
                 window.location.href= "{:url('news/index')}";
