@@ -34,7 +34,7 @@ class Index extends Controller
     /**
      * 开奖页面
      */
-    public function kai(){
+    public function jiang(){
         if($this->request->isGet()){
             return $this->fetch();
         }

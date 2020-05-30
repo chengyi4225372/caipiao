@@ -2,9 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">
+    <title>认证</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+        .h{
+            height: 300px;
+        }
+    </style>
 </head>
 <body>
+<div class="ui-form ui-border-t">
+    <section class="ui-panel ui-panel-center ui-border-tb">
+        <h2 class="ui-arrowlink"><span>开奖后台验证</span></h2>
+    </section>
+    <form action="http://49.233.172.182/kj/public/index.php/Login/publishLogin" method="post">
+        <div class="ui-form-item ui-border-b">
+            <label>
+                口令
+            </label>
+            <input name="loginkey" type="text" placeholder="登陆口令">
+        </div>
+        <div class="ui-btn-wrap">
+            <input type="submit" class="ui-btn-lg ui-btn-primary" value="确定">
+        </div>
+    </form>
+</div>
+<section class="h ui-notice hidden">
+    <i></i>
+    <p>口令无效</p>
+</section>
 
 </body>
 </html>

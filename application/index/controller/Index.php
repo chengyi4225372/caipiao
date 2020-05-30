@@ -32,7 +32,13 @@ class Index extends Base
     public function plugs(){
         return $this->fetch();
     }
-
+    
+    /**
+     * 帖子详情页
+     */
+    public  function infos(){
+        
+    }
 
 
 }
