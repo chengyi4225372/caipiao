@@ -48,12 +48,11 @@ class News extends Base {
     public function edit(){
         if($this->request->isGet()){
             $mid     = input('get.mid');
-            $options = input('get.options','','int');
             if(empty($mid) || !isset($mid)){
                 return false;
             }
 
-            $infos = Db::name($this->table)->where(['id'=>$mid,'status'=>1,'options'=>$options])
+            $infos = Db::name($this->table)->where(['id'=>$mid,'status'=>1])
                 ->find();
 
             $this->assign('infos',$infos);
