@@ -13,7 +13,15 @@ class Index extends Base
     {
         if($this->request->isGet()){
             $banner = Db::name('banner')->where(['status'=>1])->select();
-           $this->assign('banner',$banner);
+            $newss  = Db::name('news')->where(['status'=>1,'`options`'=>1])->select();
+            $news2  = Db::name('news')->where(['status'=>1,'`options`'=>2])->select();
+            $news3  = Db::name('news')->where(['status'=>1,'`options`'=>3])->select();
+            $news4  = Db::name('news')->where(['status'=>1,'`options`'=>4])->select();
+            $this->assign('banner',$banner);
+            $this->assign('newss',$newss);
+            $this->assign('news2',$news2);
+            $this->assign('news3',$news3);
+            $this->assign('news4',$news4);
             return $this->fetch();
         }
         return false;
@@ -37,7 +45,7 @@ class Index extends Base
      * 帖子详情页
      */
     public  function infos(){
-        
+        return $this->fetch();
     }
 
 
