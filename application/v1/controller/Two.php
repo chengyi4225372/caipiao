@@ -2,9 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2020/5/13 0013
- * Time: 18:11
- * 新闻控制器
+ * Date: 2020/5/31
+ * Time: 23:03
  */
 namespace  app\v1\controller;
 
@@ -12,12 +11,12 @@ use think\Controller;
 use think\Db;
 use think\Request;
 use app\v1\controller\Base;
-class News extends Base {
+class Two extends Base {
 
     protected $table = 'news';
-    
+
     public function index(){
-        $list = Db::name($this->table)->where(['status'=>1,'options'=>1])->order('id desc')->paginate(15);
+        $list = Db::name($this->table)->where(['status'=>1,'options'=>2])->order('id desc')->paginate(15);
         $this->assign('list',$list);
         return $this->fetch();
     }
@@ -26,7 +25,7 @@ class News extends Base {
         if($this->request->isPost()){
             $data['title']   = input('post.title','','trim');
             $data['content'] = input('post.content','','trim');
-            $data['options'] = 1;
+            $data['options'] = 2;
             $data['create_time'] = time();
 
             if(empty($data['title'] || !isset($data['content']))){
@@ -52,7 +51,9 @@ class News extends Base {
                 return false;
             }
 
-            $infos = Db::name($this->table)->where(['id'=>$mid,'status'=>1])->find();
+            $infos = Db::name($this->table)->where(['id'=>$mid,'status'=>1])
+                ->find();
+
             $this->assign('infos',$infos);
             return $this->fetch();
         }
@@ -61,8 +62,7 @@ class News extends Base {
             $mid     = input('post.mid');
             $title   = input('post.title','','trim');
             $content = input('post.content','','trim');
-            $options = 1;
-            
+            $options = 2;
 
             if(empty($mid) || !isset($mid)){
                 return false;
@@ -88,7 +88,7 @@ class News extends Base {
                 return false;
             }
 
-            $ret = Db::name($this->table)->where(['id'=>$mid,'options'=>1])->update(['status'=>0]);
+            $ret = Db::name($this->table)->where(['id'=>$mid,'options'=>2])->update(['status'=>0]);
 
             if($ret !== false){
                 return json(['code'=>200,'msg'=>'删除成功']);
@@ -98,6 +98,5 @@ class News extends Base {
         }
         return false;
     }
-
-
+    
 }

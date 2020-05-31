@@ -48,7 +48,19 @@ class Index extends Base
      * 帖子详情页
      */
     public  function infos(){
-        return $this->fetch();
+
+        if($this->request->isGet()){
+            $mid = input('get.mid','','int');
+
+            if(empty($mid)){
+                return false;
+            }
+
+            $info = Db::name('news')->where(['id'=>$mid,'status'=>1])->find();
+            $this->assign('info',$info);
+            return $this->fetch();
+        }
+        return false;
     }
 
 

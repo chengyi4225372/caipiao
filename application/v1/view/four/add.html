@@ -13,6 +13,7 @@
               </div>
           </div>
 
+
         <div >
             <label for="title" class="layui-form-label">
                 <span class="x-red">*</span>新闻信息
@@ -38,17 +39,16 @@
               var editors = ue.getContent('editor');
               var title = $.trim($('#title').val());
 
-
              if(title == '' || title  == undefined){
                  layer.msg('请输入标题');
                  return false;
              }
-             var urls = "{:url('news/add')}";
+             var urls = "{:url('four/add')}";
 
              $.post(urls,{'title':title,'content':editors},function(ret){
                     if(ret.code == 200){
                         layer.msg(ret.msg,{icon:6});
-                        window.location.href= "{:url('news/index')}";
+                        window.location.href= "{:url('four/index')}";
                     }
 
                  if(ret.code == 400){
