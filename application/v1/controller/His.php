@@ -26,13 +26,22 @@ class His extends Base {
     public function edit(){
         if($this->request->isPost()){
             $mid   = input('post.mid','','int');
-            $imgs  = input('post.imgs','','trim');
+            $data['now'] = input('post.now','','trim');
+            $data['next'] = input('post.next','','trim');
+            $data['one'] = input('post.one','','trim');
+            $data['two'] = input('post.two','','trim');
+            $data['three'] = input('post.three','','trim');
+            $data['four'] = input('post.four','','trim');
+            $data['five'] = input('post.five','','trim');
+            $data['six'] = input('post.six','','trim');
+            $data['seven'] = input('post.seven','','trim');
+
 
             if(empty($mid) || !isset($mid)){
                 return false;
             }
 
-            $res= Db::name($this->table)->where(['id'=>$mid])->update(['imgs'=>$imgs]);
+            $res= Db::name($this->table)->where(['id'=>$mid])->update($data);
 
             if($res !== false){
                 return json(['code'=>200,'msg'=>'编辑成功']);
@@ -48,7 +57,7 @@ class His extends Base {
                 return false;
             }
             $info = Db::name($this->table)->where(['id'=>$mid])->find();
-            $this->assign('info',$info);
+            $this->assign('infos',$info);
             return $this->fetch();
         }
         return false;
@@ -60,10 +69,7 @@ class His extends Base {
             if(empty($mid) || !isset($mid)){
                 return false;
             }
-
-
             $ret = Db::name($this->table)->where(['id'=>$mid])->update(['status'=>0]);
-
             if($ret !== false){
                 return json(['code'=>200,'msg'=>'删除成功']);
             }else{

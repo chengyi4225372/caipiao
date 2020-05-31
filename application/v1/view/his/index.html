@@ -13,22 +13,35 @@
     <thead>
     <tr>
       <th>ID</th>
-      <th>新闻标题</th>
-      <th>加入时间</th>
+      <th>本期期数</th>
+      <th>下期期数</th>
+      <th>开奖数</th>
+      <th>创建时间</th>
       <th>操作</th></tr>
     </thead>
     {volist name='list' id='vo'}
     <tbody>
     <tr>
       <td>{$vo.id}</td>
-      <td>{$vo.title}</td>
+      <td>{$vo.now}</td>
+      <td>{$vo.next}</td>
+      <td>
+        <img src="/static/home/ball/{$vo.one}.png" alt="" style="width: 80px;height: 100px;">
+        <img src=/static/home/ball/{$vo.two}.png"" alt="" style="width: 80px;height: 100px;">
+        <img src="/static/home/ball/{$vo.three}.png" alt="" style="width: 80px;height: 100px;">
+        <img src="/static/home/ball/{$vo.four}.png" alt="" style="width: 80px;height: 100px;">
+        <img src="/static/home/ball/{$vo.five}.png" alt="" style="width: 80px;height: 100px;">
+        <img src="/static/home/ball/{$vo.six}.png" alt="" style="width: 80px;height: 100px;">
+        +
+        <img src="/static/home/ball/{$vo.seven}.png" alt="" style="width: 80px;height: 100px;">
+      </td>
       <td>{$vo.create_time|date="Y-m-d,H:i:s",###}</td>
       <td class="td-manage">
-        <a title="详情" onclick="news_edit(this)" data-href="{:url('news/edit')}?mid={$vo.id}"  href="javascript:;">
+        <a title="详情" onclick="news_edit(this)" data-href="{:url('his/edit')}?mid={$vo.id}"  href="javascript:;">
           <i class="layui-icon">&#xe642;</i>
         </a>
 
-        <a title="删除" onclick="member_del('{:url('news/del')}','{$vo.id}')" href="javascript:;">
+        <a title="删除" onclick="member_del('{:url('his/del')}','{$vo.id}')" href="javascript:;">
           <i class="layui-icon">&#xe640;</i>
         </a>
       </td>
@@ -66,7 +79,7 @@
       $.get(obj,{'mid':id},function(ret){
         if(ret.code == 200){
           layer.msg(ret.msg,{icon:6});
-            window.location.href="{:url('news/index')}";
+            window.location.href="{:url('his/index')}";
         }
 
         if(ret.code == 400){

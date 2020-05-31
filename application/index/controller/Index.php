@@ -31,6 +31,9 @@ class Index extends Base
      * 开奖记录
      */
     public function history(){
+        $list = Db::name('ball')->where(['status'=>1])->select();
+        $list?$list:'';
+        $this->assign('list',$list);
         return $this->fetch();
     }
 

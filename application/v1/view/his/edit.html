@@ -5,67 +5,75 @@
 
 <div  style="padding-top: 20px;">
     <div class="layui-form-item">
-        <label for="title" class="layui-form-label">
-            <span class="x-red">*</span>新闻标题
+        <label for="now" class="layui-form-label">
+            <span class="x-red">*</span>本期期数
         </label>
         <div class="layui-input-block">
-            <input type="text" id="title" value="{$infos.title}" class="layui-input">
+            <input type="text" id="now" value="{$infos.now}" class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label for="tie" class="layui-form-label">
-            <span class="x-red">*</span>帖子发布区域
+        <label for="next" class="layui-form-label">
+            <span class="x-red">*</span>下期期数
         </label>
-        <div class="layui-input-inline">
-            <select id="shipping" name="shipping" class="valid">
-                <option value="1" {eq name='$infos.options' value='1'} aria-checked="" {/eq}>帖子区域1</option>
-                <option value="2"{eq name='$infos.options' value='2'}  aria-checked="" {/eq}>帖子区域2</option>
-                <option value="3" {eq name='$infos.options' value='3'} aria-checked="" {/eq}>帖子区域3</option>
-                <option value="4" {eq name='$infos.options' value='4'} aria-checked="" {/eq}>帖子区域4</option>
-            </select>
+        <div class="layui-input-block">
+            <input type="text" id="next" value="{$infos.next}" class="layui-input">
         </div>
     </div>
 
-    <div >
-        <label for="title" class="layui-form-label">
-            <span class="x-red">*</span>新闻信息
+
+    <div class="layui-form-item">
+        <label for="numbers" class="layui-form-label">
+            <span class="x-red">*</span>开奖号码数
         </label>
-        <div class="layui-input-inline">
-            <script id="editor" type="text/plain" >{$infos.content}</script>
+        <div class="layui-input-block">
+            <span class="x-red">*</span>第1位数
+            <input type="text" id="one" value="{$infos.one}" class="layui-input">
+            <span class="x-red">*</span>第2位数
+            <input type="text" id="two" value="{$infos.two}" class="layui-input">
+            <span class="x-red">*</span>第3位数
+            <input type="text" id="three" value="{$infos.three}" class="layui-input">
+            <span class="x-red">*</span>第4位数
+            <input type="text" id="four" value="{$infos.four}" class="layui-input">
+            <span class="x-red">*</span>第5位数
+            <input type="text" id="five" value="{$infos.five}" class="layui-input">
+            <span class="x-red">*</span>第6位数
+            <input type="text" id="six" value="{$infos.six}" class="layui-input">
+            <span class="x-red">*</span>第7位数
+            <input type="text" id="seven" value="{$infos.seven}" class="layui-input">
         </div>
     </div>
+
     <input type="hidden" id="mid" value="{$infos.id}" />
 
     <div class="layui-form-item">
         <label for="repass" class="layui-form-label"></label>
-        <button  class="layui-btn"  id="editnews" >
+        <button  class="layui-btn"  id="edit_his" >
             提交
         </button>
     </div>
 </div>
 <script>
 
-    //实例化编辑器
-    var ue = UE.getEditor('editor',{initialFrameWidth:'80%',initialFrameHeight:400,});
 
-    $('#editnews').click(function(){
-        var editors = ue.getContentTxt('editor');
-        var title = $.trim($('#title').val());
+    $('#edit_his').click(function(){
         var mid   = $('#mid').val();
-        var options = $('#shipping option:selected ').val();
+        var now   = $.trim($('#now').val());
+        var next  = $.trim($('#next').val());
+        var one   = $.trim($('#one').val());
+        var two   = $.trim($('#two').val());
+        var three = $.trim($('#three').val());
+        var four  = $.trim($('#four').val());
+        var five  = $.trim($('#five').val());
+        var six   = $.trim($('#six').val());
+        var seven = $.trim($('#seven').val());
 
-
-        if(title == '' || title  == undefined){
-            layer.msg('请输入标题');
-            return false;
-        }
-        var urls = "{:url('news/add')}";
-
-        $.post(urls,{'title':title,'content':editors,'mid':mid,'options':options},function(ret){
+        var urls = "{:url('his/add')}";
+        $.post(urls,{'mid':mid,'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six,'seven':seven},function(ret){
             if(ret.code == 200){
                 layer.msg(ret.msg,{icon:6});
-                window.location.href= "{:url('news/index')}";
+                window.location.href= "{:url('his/index')}";
             }
 
             if(ret.code == 400){

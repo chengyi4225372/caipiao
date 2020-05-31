@@ -33,49 +33,19 @@
     </tr>
     </thead>
     <tbody>
-
+   {volist name='list' id='vo'}
     <tr>
-        <td width="130" height="100">2020第02期</td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/2.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/3.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
+        <td width="130" height="100">2020第{$vo.now}期</td>
+        <td><img src="/static/home/ball/{$vo.one}.png" alt=""></td>
+        <td><img src="/static/home/ball/{$vo.two}.png" alt=""></td>
+        <td><img src="/static/home/ball/{$vo.three}.png" alt=""></td>
+        <td><img src="/static/home/ball/{$vo.four}.png" alt=""></td>
+        <td><img src="/static/home/ball/{$vo.five}.png" alt=""></td>
+        <td><img src="/static/home/ball/{$vo.six}.png" alt=""></td>
         <td style="font-size: 30px">+</td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/4.png" alt=""></td>
-
-
-
+        <td><img src="/static/home/ball/{$vo.seven}.png" alt=""></td>
     </tr>
-    <tr>
-        <td width="130" height="100">2020第2期</td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td style="font-size: 30px">+</td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-
-
-
-    </tr>
-    <tr>
-        <td width="130" height="100">2020第1期</td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/1.png" alt=""></td>
-        <td style="font-size: 30px">+</td>
-        <td><img src="http://49.233.172.182/kj/public/static/2020/2.png" alt=""></td>
-
-
-
-    </tr>
+    {/volist}
     </tbody>
 </table>
 </body>
