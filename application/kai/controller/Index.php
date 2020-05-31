@@ -4,6 +4,7 @@
  * User: Administrator
  * Date: 2020/5/30
  * Time: 12:04
+ * 开奖后台
  */
 namespace app\kai\controller;
 
@@ -16,7 +17,7 @@ class Index extends Controller
     //首页
     public function index()
     {
-            return $this->fetch();
+        return $this->fetch();
     }
 
 
