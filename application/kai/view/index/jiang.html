@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">
+    <script src="/static/home/js/jquery.min.js"></script>
+    <script src="/static/admin/lib/layui/layui.js"></script>
     <title>开奖后台</title>
     <style>
         *{
@@ -83,7 +85,7 @@
             <a href="javascript:void(0)" class="ui-icon-close" onclick="reset(this)">
             </a>
         </div>
-
+         <br/>
         <div class="ui-form-item ui-form-item-switch ui-border-b">
             <p>
                 右滑右边选项把开奖结果添加到全年记录
@@ -93,7 +95,7 @@
             </label>
         </div>
         <div class="ui-btn-wrap">
-            <button type="submit" class="ui-btn-lg ui-btn-primary">
+            <button type="button" class="ui-btn-lg ui-btn-primary" onclick="btn_jiang();">
                 确定
             </button>
         </div>
@@ -153,4 +155,75 @@
         w.value = week;
 
     }
+
+    function btn_jiang(){
+          var now  = $.trim($('#w').val());
+          var next =$.trim($('#cur-period').val());
+          var one  =  $.trim($('#number1').val());
+          var two  =  $.trim($('#number2').val());
+          var three  =  $.trim($('#number3').val());
+          var four  =  $.trim($('#number4').val());
+          var five  =  $.trim($('#number5').val());
+          var six  =  $.trim($('#number6').val());
+
+        if(now == '' || now  == undefined){
+            alert('请输入本期号');
+            return false;
+        }
+
+        if(next == '' || next  == undefined){
+            alert('请输入下期号');
+            return false;
+        }
+
+        if(one == '' || one  == undefined){
+            alert('开奖号码第一位不能为空');
+            return false;
+        }
+
+
+        if(two == '' || two== undefined){
+            alert('开奖号码第2位不能为空');
+            return false;
+        }
+
+        if(three == '' || three  == undefined){
+            alert('开奖号码第3位不能为空');
+            return false;
+        }
+
+        if(four == '' || four== undefined){
+            alert('开奖号码第4位不能为空');
+            return false;
+        }
+
+        if(five == '' || five== undefined){
+            alert('开奖号码第5位不能为空');
+            return false;
+        }
+
+        if(six == '' ||  six == undefined){
+            alert('开奖号码第6位不能为空');
+            return false;
+        }
+
+        var urls = "{:url('index/jiang')}";
+
+        $.post(urls,{'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six},function(ret){
+              if(ret.code == 200){
+                layer.alert(ret.msg,function(){
+                    parent.location.reload();
+                });
+              }
+
+            if(ret.code == 400){
+                layer.alert(ret.msg,function(){
+                    parent.location.reload();
+                });
+            }
+        },'json')
+
+    }
+
 </script>
+

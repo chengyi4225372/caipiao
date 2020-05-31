@@ -44,11 +44,11 @@
             alert('请输入开奖秘钥');
             return false;
         }
-        var  urls = "{:url('kai/checkjiang')}";
+        var  urls = "{:url('index/checkjiang')}";
 
         $.post(urls,{'login':login},function(ret){
             if(ret.code == 200){
-                window.location.href ="{:url('kai/jiang')}";
+                window.location.href ="{:url('index/jiang')}";
             }
 
             if(ret.code == 400){

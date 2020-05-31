@@ -27,8 +27,14 @@ class Index extends Controller
     public  function checkjiang(){
         if($this->request->isPost()){
              $login  = input('post.login','','trim');
+             $ma     = Db::name('ma')->order('id  desc')->find();
+            if($login == $ma['key']){
+                return json(['code'=>200,'msg'=>'success']);
+            }
 
-            if($login == )
+            if($login != $ma['key']){
+                return json(['code'=>400,'msg'=>'error']);
+            }
         }
         return false;
     }
@@ -43,6 +49,23 @@ class Index extends Controller
         }
 
         if($this->request->isPost()){
+            $data['now'] = input('post.now','','trim');
+            $data['next'] = input('post.now','','trim');
+            $data['one'] = input('post.one','','trim');
+            $data['two'] = input('post.two','','trim');
+            $data['three'] = input('post.three','','trim');
+            $data['four'] = input('post.four','','trim');
+            $data['five'] = input('post.five','','trim');
+            $data['six'] = input('post.six','','trim');
+            $data['create_time'] = time();
+
+            $ret = Db::name('ball')->insertGetId($data);
+
+            if($ret !==false){
+                return json(['code'=>200,'msg'=>'操作成功']);
+            }else{
+                return json(['code'=>400,'msg'=>'操作失败']);
+            }
 
         }
 
