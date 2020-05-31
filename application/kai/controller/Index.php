@@ -57,6 +57,7 @@ class Index extends Controller
             $data['four'] = input('post.four','','trim');
             $data['five'] = input('post.five','','trim');
             $data['six'] = input('post.six','','trim');
+            $data['seven'] = input('post.seven','','trim');
             $data['create_time'] = time();
 
             $ret = Db::name('ball')->insertGetId($data);

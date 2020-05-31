@@ -74,19 +74,21 @@
             <label>
                 开奖号码
             </label>
-            <input name="number1" type="text" placeholder="" id="number1">
-            <input name="number2" type="text" placeholder="" id="number2">
-            <input name="number3" type="text" placeholder="" id="number3">
-            <input name="number4" type="text" placeholder="" id="number4">
-            <input name="number5" type="text" placeholder="" id="number5">
-            <input name="number6" type="text" placeholder="" id="number6">
-            +
-            <input name="number7" type="text" placeholder="" id="number7">
-            <a href="javascript:void(0)" class="ui-icon-close" onclick="reset(this)">
-            </a>
         </div>
-         <br/>
-        <div class="ui-form-item ui-form-item-switch ui-border-b">
+        <div class="ui-form-item ui-border-b number">
+        <input name="number1" type="text" placeholder="" id="number1">
+        <input name="number2" type="text" placeholder="" id="number2">
+        <input name="number3" type="text" placeholder="" id="number3">
+        <input name="number4" type="text" placeholder="" id="number4">
+        <input name="number5" type="text" placeholder="" id="number5">
+        <input name="number6" type="text" placeholder="" id="number6">
+        +
+        <input name="number7" type="text" placeholder="" id="number7">
+        <a href="javascript:void(0)" class="ui-icon-close" onclick="reset(this)">
+        </a>
+        </div>
+
+        <div class="ui-form-item ui-form-item-switch ui-border-b" style="padding-top: 30px;">
             <p>
                 右滑右边选项把开奖结果添加到全年记录
             </p>
@@ -157,14 +159,15 @@
     }
 
     function btn_jiang(){
-          var now  = $.trim($('#w').val());
-          var next =$.trim($('#cur-period').val());
+          var now  = $.trim($('#cur-period').val());
+          var next =$.trim($('#next-period').val());
           var one  =  $.trim($('#number1').val());
           var two  =  $.trim($('#number2').val());
           var three  =  $.trim($('#number3').val());
           var four  =  $.trim($('#number4').val());
           var five  =  $.trim($('#number5').val());
           var six  =  $.trim($('#number6').val());
+          var seven  =  $.trim($('#number7').val());
 
         if(now == '' || now  == undefined){
             alert('请输入本期号');
@@ -207,19 +210,22 @@
             return false;
         }
 
+        if(seven == '' || seven == undefined){
+           alert('开奖号码第7位不能为空');
+            return false;
+        }
+
         var urls = "{:url('index/jiang')}";
 
-        $.post(urls,{'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six},function(ret){
+        $.post(urls,{'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six,'seven':seven},function(ret){
               if(ret.code == 200){
-                layer.alert(ret.msg,function(){
+                  alert('操作成功');
                     parent.location.reload();
-                });
               }
 
             if(ret.code == 400){
-                layer.alert(ret.msg,function(){
-                    parent.location.reload();
-                });
+                alert('操作错误');
+                parent.location.reload();
             }
         },'json')
 
