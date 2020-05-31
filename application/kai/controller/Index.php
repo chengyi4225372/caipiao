@@ -26,7 +26,9 @@ class Index extends Controller
      */
     public  function checkjiang(){
         if($this->request->isPost()){
+             $login  = input('post.login','','trim');
 
+            if($login == )
         }
         return false;
     }

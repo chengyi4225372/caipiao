@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">
-    <script src=""></script>
+    <script src="/static/home/js/jquery.min.js"></script>
     <title>认证</title>
     <style>
         .hidden{
@@ -25,7 +25,7 @@
             <label>
                 口令
             </label>
-            <input name="loginkey" id=""loginkey type="text" placeholder="登陆口令">
+            <input name="loginkey" id="loginkey" type="text" placeholder="登陆口令">
         </div>
         <div class="ui-btn-wrap">
             <input type="button"  onclick="show_login();"  class="ui-btn-lg ui-btn-primary" value="确定">
@@ -36,5 +36,28 @@
     <p>口令无效</p>
 </section>
 
+<script>
+    function show_login(){
+         var login  = $.trim($('#loginkey').val());
+
+        if(login == '' || login == undefined){
+            alert('请输入开奖秘钥');
+            return false;
+        }
+        var  urls = "{:url('kai/checkjiang')}";
+
+        $.post(urls,{'login':login},function(ret){
+            if(ret.code == 200){
+                window.location.href ="{:url('kai/jiang')}";
+            }
+
+            if(ret.code == 400){
+                alert('秘钥不正确');
+                window.location.reload();
+            }
+
+        },'json')
+    }
+</script>
 </body>
 </html>
