@@ -28,13 +28,13 @@ class His extends Base {
             $mid   = input('post.mid','','int');
             $data['now'] = input('post.now','','trim');
             $data['next'] = input('post.next','','trim');
-            $data['one'] = input('post.one','','trim');
-            $data['two'] = input('post.two','','trim');
-            $data['three'] = input('post.three','','trim');
-            $data['four'] = input('post.four','','trim');
-            $data['five'] = input('post.five','','trim');
-            $data['six'] = input('post.six','','trim');
-            $data['seven'] = input('post.seven','','trim');
+            $data['one'] = intval(input('post.one','','trim'));
+            $data['two'] = intval(input('post.two','','trim'));
+            $data['three'] = intval(input('post.three','','trim'));
+            $data['four'] = intval(input('post.four','','trim'));
+            $data['five'] = intval(input('post.five','','trim'));
+            $data['six'] = intval(input('post.six','','trim'));
+            $data['seven'] = intval(input('post.seven','','trim'));
 
 
             if(empty($mid) || !isset($mid)){
