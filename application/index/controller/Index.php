@@ -41,7 +41,7 @@ class Index extends Base
      * 中间
      */
     public function plugs(){
-        $news = Db::name('ball')->order('now desc')->find();
+        $news = Db::name('ball')->where(['status'=>1])->order('now desc')->find();
         $this->assign('news',$news);
         return $this->fetch();
     }
