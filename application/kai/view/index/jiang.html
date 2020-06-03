@@ -43,7 +43,7 @@
     <section class="ui-panel ui-panel-center ui-border-tb">
         <h2 class="ui-arrowlink"><span>福彩欢迎您</span></h2>
     </section>
-    <form action="http://49.233.172.182/kj/public/index.php/admin/add" method="post" onsubmit="return checkForm()" target="L">
+    <!--<form action="http://49.233.172.182/kj/public/index.php/admin/add" method="post" onsubmit="return checkForm()" target="L">-->
         <div class="ui-form-item ui-border-b date">
             <label>下期时间</label>
             <input name="y" type="text" placeholder="" id="y" onchange="dateToWeek()">年
@@ -101,7 +101,7 @@
                 确定
             </button>
         </div>
-    </form>
+    <!--</form>-->
     <iframe name="L" src="" frameborder="0" ></iframe>
 </div>
 </body>
@@ -168,7 +168,8 @@
           var five  =  $.trim($('#number5').val());
           var six  =  $.trim($('#number6').val());
           var seven  =  $.trim($('#number7').val());
-
+          var next_time = $('#y').val()+'-'+ $('#m').val()+'-'+$('#d').val();
+          var next_qi   =  $('#w').val();
         if(now == '' || now  == undefined){
             alert('请输入本期号');
             return false;
@@ -217,7 +218,9 @@
 
         var urls = "{:url('index/jiang')}";
 
-        $.post(urls,{'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six,'seven':seven},function(ret){
+        $.post(urls,{'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six,'seven':seven,
+            'next_time':next_time,'next_qi':next_qi
+        },function(ret){
               if(ret.code == 200){
                   alert('操作成功');
                     parent.location.reload();

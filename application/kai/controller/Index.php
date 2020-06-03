@@ -58,8 +58,10 @@ class Index extends Controller
             $data['five'] = intval(input('post.five','','trim'));
             $data['six'] = intval(input('post.six','','trim'));
             $data['seven'] = intval(input('post.seven','','trim'));
+            $data['next_time'] = input('post.next_time','','trim');
+            $data['next_qi'] = input('post.next_qi','','trim');
             $data['create_time'] = time();
-            
+
             $ret = Db::name('ball')->insertGetId($data);
 
             if($ret !==false){

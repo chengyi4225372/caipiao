@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/static/home/js/jquery.min.js"></script>
     <style>
         *{
             margin: 0;
@@ -108,8 +109,7 @@
         <div style="overflow: hidden;height: 138px" class="right fl hidden">
             <img  src="/static/home/ball/ad.png" alt="">
         </div>
-        <div class="right fl ">
-
+        <div class="right fl " id="wait">
             <div class="box fl " >
                 <div class="number"><img src="/static/home/ball/{$news.one}.png" alt=""></div>
 
@@ -152,7 +152,7 @@
     </div>
     <div class="bottom">
         <div class="ntime fl">
-            第2期开奖时间：2020-7-17-星期五&nbsp;21:30
+            第{$next.next}期开奖时间：{$next.next_time}-{$next.next_qi}&nbsp;21:30
         </div>
         <div class="lefttime fl">
             <div style="font-weight: bold" class="t">距下期开奖还有：</div>
@@ -177,16 +177,26 @@
 
     var showtime = function () {
         var timeElement = document.querySelectorAll(".lefttime div");
-        var opentime = "2020-7-17 21:30";
+        var opentime = "{$next.next_time} 21:30";
         opentime = opentime.replace(/-/g,"/");
-        console.log(opentime)
-        var nowtime = new Date(),  //获取当前时间
-                endtime = new Date(opentime);  //定义结束时间
+        //console.log(opentime);
+        var nowtime = new Date();  //获取当前时间
+        var endtime = new Date(opentime);  //定义结束时间
         var lefttime = endtime.getTime() - nowtime.getTime(),  //距离结束时间的毫秒数
                 leftd = Math.floor(lefttime/(1000*60*60*24)),  //计算天数
                 lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
                 leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
                 lefts = Math.floor(lefttime/1000%60);  //计算秒数
+        //console.log(lefttime);
+
+        if(lefttime == 300*1000){
+            $('.hidden').show();
+            $('#wait').hide();
+        }else {
+            $('.hidden').hide();
+            $('#wait').show();
+        }
+
         if (lefttime < 0)
             return;
         timeElement[1].innerHTML = leftd;
