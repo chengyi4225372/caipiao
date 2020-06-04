@@ -89,7 +89,7 @@
         a{
             text-decoration: none;
             display: block;
-            background: #FFFF00;
+            /*background: #FFFF00;*/
             color: #FFFFFF;
         }
         .history{
@@ -165,8 +165,16 @@
             <div class="s"></div>
             <div class="t">秒</div>
         </div>
-        <div class="history fl">
-            <a href="{:url('index/history')}" target="_parent" style="background: #ff5500;">开奖记录</a>
+        <div class="history fl" >
+            <a href="{:url('index/history')}" target="_parent" >
+                <img src="/static/home/year/year.png" alt="" style="height:35px;">
+            </a>
+        </div>
+
+        <div class="history" >
+            <a href="{:url('index/night')}" target="_parent" >
+                <img src="/static/home/year/other.png" alt="" style="height:35px;">
+            </a>
         </div>
 
     </div>

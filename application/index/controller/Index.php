@@ -12,7 +12,7 @@ class Index extends Base
     public function index()
     {
         if($this->request->isGet()){
-            $banner = Db::name('banner')->where(['status'=>1])->select();
+            $banner = Db::name('guang')->where(['status'=>1])->select();
             $newss  = Db::name('news')->where(['status'=>1,'`options`'=>1])->select();
             $news2  = Db::name('news')->where(['status'=>1,'`options`'=>2])->select();
             $news3  = Db::name('news')->where(['status'=>1,'`options`'=>3])->select();
@@ -67,5 +67,64 @@ class Index extends Base
         return false;
     }
 
+    //2010
+    public function ten(){
+
+        return $this->fetch();
+    }
+
+    //2011
+    public function one(){
+
+        return $this->fetch();
+    }
+
+    //2012
+    public function two(){
+
+        return $this->fetch();
+    }
+
+    //2013
+    public function three(){
+
+        return $this->fetch();
+    }
+
+    //2014
+    public function four(){
+
+        return $this->fetch();
+    }
+
+
+    //2015
+    public function five(){
+
+        return $this->fetch();
+    }
+
+    //2016
+    public function six(){
+
+        return $this->fetch();
+    }
+
+    //2017
+    public function seven(){
+
+        return $this->fetch();
+    }
+
+    //2018
+    public function eight(){
+
+        return $this->fetch();
+    }
+
+   //2019
+    public function night(){
+        return $this->fetch();
+    }
 
 }
