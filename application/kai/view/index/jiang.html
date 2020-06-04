@@ -185,37 +185,6 @@
             return false;
         }
 
-
-        if(two == '' || two== undefined){
-            alert('开奖号码第2位不能为空');
-            return false;
-        }
-
-        if(three == '' || three  == undefined){
-            alert('开奖号码第3位不能为空');
-            return false;
-        }
-
-        if(four == '' || four== undefined){
-            alert('开奖号码第4位不能为空');
-            return false;
-        }
-
-        if(five == '' || five== undefined){
-            alert('开奖号码第5位不能为空');
-            return false;
-        }
-
-        if(six == '' ||  six == undefined){
-            alert('开奖号码第6位不能为空');
-            return false;
-        }
-
-        if(seven == '' || seven == undefined){
-           alert('开奖号码第7位不能为空');
-            return false;
-        }
-
         var urls = "{:url('index/jiang')}";
 
         $.post(urls,{'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six,'seven':seven,

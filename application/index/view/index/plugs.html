@@ -197,10 +197,12 @@
                 lefts = Math.floor(lefttime/1000%60);  //计算秒数
         //console.log(lefttime);
 
-        if(lefttime == 300*1000){
+        if(lefttime <= 300*1000){
             $('.hidden').show();
             $('#wait').hide();
-        }else {
+        }
+
+        if(lefttime <=0){
             $('.hidden').hide();
             $('#wait').show();
         }

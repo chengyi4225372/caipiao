@@ -69,7 +69,7 @@
         var six   = $.trim($('#six').val());
         var seven = $.trim($('#seven').val());
 
-        var urls = "{:url('his/add')}";
+        var urls = "{:url('his/edit')}";
         $.post(urls,{'mid':mid,'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six,'seven':seven},function(ret){
             if(ret.code == 200){
                 layer.msg(ret.msg,{icon:6});
