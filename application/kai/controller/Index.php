@@ -45,12 +45,16 @@ class Index extends Controller
      */
     public function jiang(){
         if($this->request->isGet()){
+            $mid = input('get.mid','','trim');
+
+            $info = Db::name('ball')->where(['status'=>1,'id'=>$mid])->find();
+            $this->assign('info',$info);
             return $this->fetch();
         }
 
         if($this->request->isPost()){
             $data['now'] = input('post.now','','trim');
-            $data['next'] = input('post.now','','trim');
+            $data['next'] = input('post.next','','trim');
             $data['one'] = intval(input('post.one','','trim'));
             $data['two'] = intval(input('post.two','','trim'));
             $data['three'] = intval(input('post.three','','trim'));
@@ -62,13 +66,28 @@ class Index extends Controller
             $data['next_qi'] = input('post.next_qi','','trim');
             $data['create_time'] = time();
 
-            $ret = Db::name('ball')->insertGetId($data);
+            $mid = input('post.mid','','trim');
 
-            if($ret !==false){
-                return json(['code'=>200,'msg'=>'操作成功']);
-            }else{
-                return json(['code'=>400,'msg'=>'操作失败']);
+            if(empty($mid) || !isset($mid) || is_null($mid)){
+                $ret = Db::name('ball')->insertGetId($data);
+
+                if($ret !==false){
+                    return json(['code'=>200,'msg'=>'操作成功','addid'=>$ret]);
+                }else{
+                    return json(['code'=>400,'msg'=>'操作失败']);
+                }
             }
+
+
+            if(!empty($mid)){
+                $ret = Db::name('ball')->where(['id'=>$mid,'status'=>1])->update($data);
+                if($ret !==false){
+                    return json(['code'=>200,'msg'=>'操作成功','addid'=>$mid]);
+                }else{
+                    return json(['code'=>400,'msg'=>'操作失败']);
+                }
+            }
+
 
         }
 

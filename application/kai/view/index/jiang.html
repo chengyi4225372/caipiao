@@ -52,13 +52,13 @@
         </div>
         <div class="ui-form-item ui-border-b date">
             <label>下期时间</label>
-            <input name="w" style="width: 80px" type="text" placeholder="" id="w" readonly>
+            <input name="w" style="width: 80px" type="text" placeholder="" id="w" readonly  />
         </div>
         <div class="ui-form-item ui-border-b">
             <label>
                 下期期数
             </label>
-            <input name="next_period" type="text" placeholder="下期期数" id="next-period">
+            <input name="next_period" type="text" placeholder="下期期数" id="next-period" value="{$info.next|default=null} ">
             <a href="javascript:void(0)" class="ui-icon-close" onclick="reset(this)">
             </a>
         </div>
@@ -66,7 +66,7 @@
             <label>
                 本期期数
             </label>
-            <input name="cur_period" type="text" placeholder="本期期数" id="cur-period">
+            <input name="cur_period" type="text" placeholder="本期期数" id="cur-period" value="{$info.now|default=null}" />
             <a href="javascript:void(0)" class="ui-icon-close" onclick="reset(this)">
             </a>
         </div>
@@ -76,19 +76,21 @@
             </label>
         </div>
         <div class="ui-form-item ui-border-b number">
-        <input name="number1" type="text" placeholder="" id="number1">
-        <input name="number2" type="text" placeholder="" id="number2">
-        <input name="number3" type="text" placeholder="" id="number3">
-        <input name="number4" type="text" placeholder="" id="number4">
-        <input name="number5" type="text" placeholder="" id="number5">
-        <input name="number6" type="text" placeholder="" id="number6">
+        <input name="number1" type="text" placeholder="" id="number1" value="{$info.one|default=null}">
+        <input name="number2" type="text" placeholder="" id="number2" value="{$info.two|default=null}">
+        <input name="number3" type="text" placeholder="" id="number3" value="{$info.three|default=null} ">
+        <input name="number4" type="text" placeholder="" id="number4" value="{$info.four|default=null} ">
+        <input name="number5" type="text" placeholder="" id="number5" value="{$info.five|default=''} ">
+        <input name="number6" type="text" placeholder="" id="number6" value="{$info.six|default=''} ">
         +
-        <input name="number7" type="text" placeholder="" id="number7">
+        <input name="number7" type="text" placeholder="" id="number7" value="{$info.seven|default=null} ">
         <a href="javascript:void(0)" class="ui-icon-close" onclick="reset(this)">
         </a>
         </div>
 
-        <div class="ui-form-item ui-form-item-switch ui-border-b" style="padding-top: 30px;">
+      <input type="hidden" id="mid" value="{$Think.get.mid|default=''}" />
+       <br/>
+        <div class="ui-form-item ui-form-item-switch ui-border-b" >
             <p>
                 右滑右边选项把开奖结果添加到全年记录
             </p>
@@ -170,6 +172,7 @@
           var seven  =  $.trim($('#number7').val());
           var next_time = $('#y').val()+'-'+ $('#m').val()+'-'+$('#d').val();
           var next_qi   =  $('#w').val();
+          var mid = $('#mid').val();
         if(now == '' || now  == undefined){
             alert('请输入本期号');
             return false;
@@ -188,11 +191,11 @@
         var urls = "{:url('index/jiang')}";
 
         $.post(urls,{'now':now,'next':next,'one':one,'two':two,'three':three,'four':four,'five':five,'six':six,'seven':seven,
-            'next_time':next_time,'next_qi':next_qi
+            'next_time':next_time,'next_qi':next_qi,'mid':mid
         },function(ret){
               if(ret.code == 200){
                   alert('操作成功');
-                    parent.location.reload();
+                  window.location.href = "{:url('index/jiang')}?mid="+ret.addid;
               }
 
             if(ret.code == 400){

@@ -106,9 +106,11 @@
             <div class="period">第{$news.now}期</div>
             <div class="status">[更新正常]</div>
         </div>
-        <div style="overflow: hidden;height: 138px" class="right fl hidden">
+
+        <div style="overflow: hidden;height: 138px" class="right fl hidden ">
             <img  src="/static/home/ball/ad.png" alt="">
         </div>
+
         <div class="right fl " id="wait">
             <div class="box fl " >
                 <div class="number"><img src="/static/home/ball/{$news.one}.png" alt=""></div>
@@ -149,6 +151,7 @@
             </div>
 
         </div>
+
     </div>
     <div class="bottom">
         <div class="ntime fl">
@@ -183,39 +186,44 @@
 </html>
 <script>
 
-    var showtime = function () {
-        var timeElement = document.querySelectorAll(".lefttime div");
-        var opentime = "{$next.next_time} 21:30";
-        opentime = opentime.replace(/-/g,"/");
-        //console.log(opentime);
-        var nowtime = new Date();  //获取当前时间
-        var endtime = new Date(opentime);  //定义结束时间
-        var lefttime = endtime.getTime() - nowtime.getTime(),  //距离结束时间的毫秒数
-                leftd = Math.floor(lefttime/(1000*60*60*24)),  //计算天数
-                lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
-                leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
-                lefts = Math.floor(lefttime/1000%60);  //计算秒数
-        //console.log(lefttime);
 
-        if(lefttime <= 300*1000){
-            $('.hidden').show();
-            $('#wait').hide();
-        }
+        var showtime = function () {
+            var timeElement = document.querySelectorAll(".lefttime div");
+            var opentime = "{$next.next_time} 21:30";
+            opentime = opentime.replace(/-/g,"/");
+            //console.log(opentime);
+            var nowtime = new Date();  //获取当前时间
+            var endtime = new Date(opentime);  //定义结束时间
+            var lefttime = endtime.getTime() - nowtime.getTime(),  //距离结束时间的毫秒数
+                    leftd = Math.floor(lefttime/(1000*60*60*24)),  //计算天数
+                    lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
+                    leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
+                    lefts = Math.floor(lefttime/1000%60);  //计算秒数
+            //console.log(lefttime);
 
-        if(lefttime <=0){
-            $('.hidden').hide();
-            $('#wait').show();
-        }
+            if(lefttime <= 300*1000){
+                $('.hidden').show();
+                $('#wait').hide();
+            }
 
-        if (lefttime < 0)
-            return;
-        timeElement[1].innerHTML = leftd;
-        timeElement[3].innerHTML = lefth;
-        timeElement[5].innerHTML = leftm;
-        timeElement[7].innerHTML = lefts;
+            if(lefttime <=0){
+                $('.hidden').hide();
+                $('#wait').show();
+            }
 
-    }
-    setInterval (function () {
-        showtime();
-    }, 1000);
+            if (lefttime < 0)
+                return;
+            timeElement[1].innerHTML = leftd;
+            timeElement[3].innerHTML = lefth;
+            timeElement[5].innerHTML = leftm;
+            timeElement[7].innerHTML = lefts;
+
+        };
+
+        //定时器
+        setInterval (function () {
+            showtime();
+        }, 1000);
+
+
 </script>
