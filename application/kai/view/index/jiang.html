@@ -46,9 +46,9 @@
     <!--<form action="http://49.233.172.182/kj/public/index.php/admin/add" method="post" onsubmit="return checkForm()" target="L">-->
         <div class="ui-form-item ui-border-b date">
             <label>下期时间</label>
-            <input name="y" type="text" placeholder="" id="y" onchange="dateToWeek()">年
-            <input name="m" type="text" placeholder="" id="m" onchange="dateToWeek()">月
-            <input name="d" type="text" placeholder="" id="d" onchange="dateToWeek()">日&nbsp;
+            <input name="y" type="text" placeholder="" id="y" value="{$info['next_time']['0']|default=''}" onchange="dateToWeek()">年
+            <input name="m" type="text" placeholder="" id="m" value="{$info['next_time']['1']||default=''}" onchange="dateToWeek()">月
+            <input name="d" type="text" placeholder="" id="d"  value="{$info['next_time']['2']||default=''}" onchange="dateToWeek()">日&nbsp;
         </div>
         <div class="ui-form-item ui-border-b date">
             <label>下期时间</label>

@@ -155,7 +155,7 @@
     </div>
     <div class="bottom">
         <div class="ntime fl">
-            第{$next.next}期开奖时间：{$next.next_time}-{$next.next_qi}&nbsp;21:30
+            第{$next.next}期开奖时间：{$next.next_time}-{$next.next_qi}&nbsp;13:00
         </div>
         <div class="lefttime fl">
             <div style="font-weight: bold" class="t">距下期开奖还有：</div>
@@ -169,13 +169,13 @@
             <div class="t">秒</div>
         </div>
         <div class="history fl" >
-            <a href="{:url('index/history')}" target="_parent" >
+            <a href="{:url('index/history')}" target="_blank" >
                 <img src="/static/home/year/year.png" alt="" style="height:35px;">
             </a>
         </div>
 
         <div class="history" >
-            <a href="{:url('index/night')}" target="_parent" >
+            <a href="{:url('index/night')}" target="_blank" >
                 <img src="/static/home/year/other.png" alt="" style="height:35px;">
             </a>
         </div>
@@ -189,7 +189,7 @@
 
         var showtime = function () {
             var timeElement = document.querySelectorAll(".lefttime div");
-            var opentime = "{$next.next_time} 21:30";
+            var opentime = "{$next.next_time} 13:00";
             opentime = opentime.replace(/-/g,"/");
             //console.log(opentime);
             var nowtime = new Date();  //获取当前时间

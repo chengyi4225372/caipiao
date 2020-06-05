@@ -48,6 +48,7 @@ class Index extends Controller
             $mid = input('get.mid','','trim');
 
             $info = Db::name('ball')->where(['status'=>1,'id'=>$mid])->find();
+            $info['next_time']= explode('-',$info['next_time']);
             $this->assign('info',$info);
             return $this->fetch();
         }
