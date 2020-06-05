@@ -105,6 +105,7 @@
         <div class="left fl">
             <div class="period">第{$news.now}期</div>
             <div class="status">[更新正常]</div>
+            <span class="status" style=" cursor:pointer;" onclick="JavaScript:location.reload();">[刷新]</span>
         </div>
 
         <div style="overflow: hidden;height: 138px" class="right fl hidden ">
@@ -155,7 +156,7 @@
     </div>
     <div class="bottom">
         <div class="ntime fl">
-            第{$next.next}期开奖时间：{$next.next_time}-{$next.next_qi}&nbsp;13:00
+            第{$next.next}期开奖时间：{$next.next_time}-{$next.next_qi}&nbsp;21:30
         </div>
         <div class="lefttime fl">
             <div style="font-weight: bold" class="t">距下期开奖还有：</div>
@@ -189,7 +190,7 @@
 
         var showtime = function () {
             var timeElement = document.querySelectorAll(".lefttime div");
-            var opentime = "{$next.next_time} 13:00";
+            var opentime = "{$next.next_time} 23:30";
             opentime = opentime.replace(/-/g,"/");
             //console.log(opentime);
             var nowtime = new Date();  //获取当前时间
@@ -201,7 +202,7 @@
                     lefts = Math.floor(lefttime/1000%60);  //计算秒数
             //console.log(lefttime);
 
-            if(lefttime <= 300*1000){
+            if(lefttime <= 120*(60*1000)){
                 $('.hidden').show();
                 $('#wait').hide();
             }
