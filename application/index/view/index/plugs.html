@@ -105,7 +105,9 @@
         <div class="left fl">
             <div class="period">第{$news.now}期</div>
             <div class="status">[更新正常]</div>
-            <span class="status" style=" cursor:pointer;" onclick="JavaScript:location.reload();">[刷新]</span>
+            <span class="status" style=" cursor:pointer;color: #945324" onclick="JavaScript:location.reload();">
+                 [刷新]
+            </span>
         </div>
 
         <div style="overflow: hidden;height: 138px" class="right fl hidden ">
@@ -186,13 +188,11 @@
 </body>
 </html>
 <script>
-
-
         var showtime = function () {
             var timeElement = document.querySelectorAll(".lefttime div");
-            var opentime = "{$next.next_time} 23:30";
+            var opentime = "{$next.next_time} 14:20";
             opentime = opentime.replace(/-/g,"/");
-            //console.log(opentime);
+           //console.log(opentime);
             var nowtime = new Date();  //获取当前时间
             var endtime = new Date(opentime);  //定义结束时间
             var lefttime = endtime.getTime() - nowtime.getTime(),  //距离结束时间的毫秒数
@@ -200,17 +200,25 @@
                     lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
                     leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
                     lefts = Math.floor(lefttime/1000%60);  //计算秒数
-            //console.log(lefttime);
+            console.log(lefttime);
 
-            if(lefttime <= 120*(60*1000)){
-                $('.hidden').show();
-                $('#wait').hide();
+            var zhan = 120 *(60*1000); //一个小时60分钟
+            if(lefttime <= 300*1000){
+                    $('.hidden').show(function(){
+                        $(this).show(zhan);
+                    });
+                   $('#wait').hide();
             }
 
-            if(lefttime <=0){
+           // console.log(zhan);
+            if(lefttime <= -zhan){
                 $('.hidden').hide();
                 $('#wait').show();
             }
+
+//            if(lefttime <=0){
+//
+//            }
 
             if (lefttime < 0)
                 return;
@@ -225,6 +233,5 @@
         setInterval (function () {
             showtime();
         }, 1000);
-
 
 </script>

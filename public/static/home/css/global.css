@@ -6,7 +6,8 @@ body, td, th, input, select, textarea, a, div {
  text-decoration:none;
  line-height:200%;
 }
-body { background:#f9f9f9 url(../images/bg.html); margin:0px; padding:0px; }
+body {
+ background: #fffacd; url(../images/bg.html); margin:0px; padding:0px; }
 ul, ol, dl{ margin:0px; padding:0px; text-indent:0px; }
 dt, dd { margin:0px; padding:0px line-height:20px; }
 li { list-style:none; margin:0px; padding:0px; line-height:20px; }
